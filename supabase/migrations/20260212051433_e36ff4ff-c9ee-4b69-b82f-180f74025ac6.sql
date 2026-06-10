@@ -1,0 +1,1 @@
+ALTER TABLE public.zones ADD COLUMN IF NOT EXISTS name_ar text;

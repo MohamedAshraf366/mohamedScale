@@ -1,0 +1,884 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   SCALE DESIGN SYSTEM - Clean Modern SaaS
+   Brand Colors:
+   - Dark Green: #1a3d38 → HSL(171, 40%, 17%)
+   - Orange: #f55000 → HSL(20, 100%, 48%)
+   - White: #ffffff
+   - Black: #020203
+   ======================================== */
+
+@layer base {
+  :root {
+    /* Scale Brand Colors */
+    --brand-dark-green: 171 40% 17%;
+    --brand-orange: 20 100% 48%;
+    --brand-orange-dark: 20 100% 42%;
+    --brand-black: 240 17% 2%;
+    --brand-white: 0 0% 100%;
+    
+    /* Chart Colors - Scale Palette */
+    --chart-primary: 20 100% 48%;
+    --chart-secondary: 171 40% 25%;
+    --chart-tertiary: 171 35% 35%;
+    --chart-quaternary: 20 85% 58%;
+    --chart-success: 171 40% 30%;
+    --chart-warning: 45 93% 47%;
+    --chart-error: 0 72% 51%;
+    
+    /* KPI Colors */
+    --kpi-value: 20 100% 48%;
+    --kpi-positive: 171 40% 30%;
+    --kpi-negative: 0 72% 51%;
+    
+    /* Status Badge Colors */
+    --status-open: 20 100% 48%;
+    --status-quotation: 20 90% 50%;
+    --status-closed: 171 40% 30%;
+    
+    /* Light Mode - Clean SaaS Theme */
+    --background: 0 0% 98%;
+    --foreground: 220 13% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    /* Primary is ORANGE */
+    --primary: 20 100% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 18%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 20 100% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 171 40% 30%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 20 100% 48%;
+
+    --radius: 0.625rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+
+    /* Sidebar - Scale Dark Green */
+    --sidebar-background: 171 40% 17%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 20 100% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 171 35% 22%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 171 30% 25%;
+    --sidebar-ring: 20 100% 52%;
+    
+    /* Card Shadows */
+    --card-shadow: 220 13% 18%;
+  }
+
+  .dark {
+    --background: 220 13% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 13% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 13% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 20 100% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 14%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 220 13% 14%;
+    --muted-foreground: 220 9% 55%;
+
+    --accent: 20 100% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 171 40% 40%;
+    --success-foreground: 0 0% 100%;
+    
+    --kpi-value: 20 100% 55%;
+    --kpi-positive: 171 40% 45%;
+    --kpi-negative: 0 65% 55%;
+    
+    --status-open: 20 100% 55%;
+    --status-quotation: 20 90% 55%;
+    --status-closed: 171 40% 45%;
+
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 20 100% 52%;
+
+    --sidebar-background: 171 35% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 20 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 171 30% 16%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 171 25% 18%;
+    --sidebar-ring: 20 100% 55%;
+    
+    --card-shadow: 0 0% 0%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Smooth theme transition */
+  html {
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  html *,
+  html *::before,
+  html *::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease, stroke 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    @apply font-semibold tracking-tight text-foreground;
+  }
+}
+
+/* ========================================
+   CARD STYLES - Clean, Minimal
+   ======================================== */
+@layer utilities {
+  .scale-card {
+    @apply bg-card rounded-xl border border-border/50;
+    box-shadow: 
+      0 1px 3px hsl(var(--card-shadow) / 0.04),
+      0 4px 12px hsl(var(--card-shadow) / 0.03);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  
+  .scale-card:hover {
+    box-shadow: 
+      0 2px 6px hsl(var(--card-shadow) / 0.06),
+      0 8px 24px hsl(var(--card-shadow) / 0.05);
+  }
+  
+  .scale-card-interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 4px 12px hsl(var(--card-shadow) / 0.08),
+      0 12px 32px hsl(var(--card-shadow) / 0.06);
+  }
+}
+
+/* ========================================
+   BACKGROUND STYLES
+   ======================================== */
+@layer utilities {
+  .gradient-bg {
+    background: linear-gradient(
+      180deg, 
+      hsl(0 0% 98%) 0%, 
+      hsl(220 14% 97%) 100%
+    );
+  }
+  
+  .dark .gradient-bg {
+    background: linear-gradient(
+      180deg, 
+      hsl(220 13% 8%) 0%, 
+      hsl(220 13% 6%) 100%
+    );
+  }
+}
+
+/* ========================================
+   SOFT SHADOWS
+   ======================================== */
+@layer utilities {
+  .soft-shadow {
+    box-shadow: 
+      0 1px 3px hsl(var(--card-shadow) / 0.04),
+      0 4px 12px hsl(var(--card-shadow) / 0.03);
+  }
+  
+  .soft-shadow-md {
+    box-shadow: 
+      0 2px 6px hsl(var(--card-shadow) / 0.05),
+      0 8px 20px hsl(var(--card-shadow) / 0.04);
+  }
+  
+  .soft-shadow-lg {
+    box-shadow: 
+      0 4px 12px hsl(var(--card-shadow) / 0.06),
+      0 16px 40px hsl(var(--card-shadow) / 0.05);
+  }
+}
+
+/* ========================================
+   SIDEBAR STYLES - Hover Expand
+   ======================================== */
+@layer utilities {
+  .sidebar-collapsed {
+    width: 72px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .sidebar-collapsed:hover {
+    width: 256px;
+  }
+  
+  .sidebar-label {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.2s ease, width 0.3s ease;
+  }
+  
+  .sidebar-collapsed:hover .sidebar-label {
+    opacity: 1;
+    width: auto;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200;
+  }
+  
+  .sidebar-item-active {
+    @apply bg-sidebar-accent text-sidebar-foreground;
+  }
+  
+  .sidebar-item:not(.sidebar-item-active):hover {
+    @apply bg-sidebar-accent/60;
+  }
+}
+
+/* ========================================
+   CHART STYLES - Soft Gradients, No Glow
+   ======================================== */
+@layer utilities {
+  /* Bar chart gradient fill */
+  .chart-bar-gradient {
+    fill: url(#barGradient);
+  }
+  
+  /* Chart container */
+  .chart-container {
+    @apply bg-card rounded-xl border border-border/50;
+    box-shadow: 
+      0 1px 3px hsl(var(--card-shadow) / 0.04),
+      0 4px 12px hsl(var(--card-shadow) / 0.03);
+  }
+}
+
+/* Recharts styling - Clean, modern */
+[data-chart] .recharts-bar-rectangle {
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+[data-chart] .recharts-bar-rectangle:hover {
+  opacity: 0.85;
+}
+
+[data-chart] .recharts-bar-rectangles:hover .recharts-bar-rectangle:not(:hover) {
+  opacity: 0.6;
+}
+
+/* Pie/Sector - Clean with white dividers */
+[data-chart] .recharts-pie-sector,
+[data-chart] .recharts-sector {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform-origin: center center;
+  cursor: pointer;
+  stroke: white;
+  stroke-width: 2;
+}
+
+[data-chart] .recharts-pie-sector:hover,
+[data-chart] .recharts-sector:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+[data-chart] .recharts-pie:hover .recharts-sector:not(:hover) {
+  opacity: 0.65;
+}
+
+/* Line chart - 3px smooth line */
+[data-chart] .recharts-line-curve {
+  stroke-width: 3px;
+  transition: stroke-width 0.2s ease;
+}
+
+[data-chart] .recharts-line:hover .recharts-line-curve {
+  stroke-width: 3.5px;
+}
+
+/* Data points */
+[data-chart] .recharts-dot {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+[data-chart] .recharts-dot:hover {
+  transform: scale(1.3);
+}
+
+/* Legend */
+[data-chart] .recharts-legend-item {
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+[data-chart] .recharts-legend-item:hover {
+  opacity: 0.8;
+}
+
+/* Tooltip cursor */
+[data-chart] .recharts-tooltip-cursor {
+  fill: hsl(var(--muted) / 0.4) !important;
+  stroke: hsl(var(--border)) !important;
+}
+
+/* Area chart */
+[data-chart] .recharts-area-area {
+  transition: opacity 0.2s ease;
+}
+
+[data-chart] .recharts-area:hover .recharts-area-area {
+  opacity: 0.85;
+}
+
+/* Funnel segment */
+.funnel-segment {
+  transition: transform 0.2s ease;
+}
+
+.funnel-segment:hover {
+  transform: scale(1.01);
+}
+
+/* ========================================
+   STATUS BADGES - Scale Colors
+   ======================================== */
+@layer utilities {
+  .badge-status-open {
+    @apply bg-status-open/12 text-status-open border border-status-open/25;
+  }
+  
+  .badge-status-quotation {
+    @apply bg-status-quotation/12 text-status-quotation border border-status-quotation/25;
+  }
+  
+  .badge-status-closed {
+    @apply bg-status-closed/12 text-status-closed border border-status-closed/25;
+  }
+}
+
+/* ========================================
+   KPI VALUE STYLING
+   ======================================== */
+@layer utilities {
+  .kpi-value {
+    @apply text-kpi-value font-bold;
+  }
+  
+  .kpi-value-positive {
+    @apply text-kpi-positive font-bold;
+  }
+  
+  .kpi-value-negative {
+    @apply text-kpi-negative font-bold;
+  }
+}
+
+/* ========================================
+   ANIMATIONS - Subtle, Professional
+   ======================================== */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-page-enter {
+    animation: page-enter 0.35s ease-out forwards;
+  }
+  
+  .animate-card-enter {
+    animation: card-enter 0.4s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.35s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+  
+  /* Stagger delays */
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.1s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.2s; }
+  .stagger-5 { animation-delay: 0.25s; }
+  .stagger-6 { animation-delay: 0.3s; }
+}
+
+/* ========================================
+   TRANSITIONS
+   ======================================== */
+@layer utilities {
+  .transition-smooth {
+    @apply transition-all duration-200 ease-out;
+  }
+}
+
+/* ========================================
+   SCROLLBAR - Minimal
+   ======================================== */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.2) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.2);
+    border-radius: 9999px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground) / 0.35);
+  }
+}
+
+/* ========================================
+   SKELETON LOADING
+   ======================================== */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@layer utilities {
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--muted-foreground) / 0.1) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+}
+
+/* ========================================
+   LOADING SCREEN
+   ======================================== */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes loadingBar {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  .animate-logo-entrance {
+    animation: logoEntrance 0.5s ease-out forwards;
+  }
+  
+  .animate-loading-bar {
+    animation: loadingBar 2s ease-out forwards;
+  }
+}
+
+/* ========================================
+   HOVER EFFECTS - Subtle
+   ======================================== */
+@layer utilities {
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ========================================
+   CHART GRADIENTS (SVG defs)
+   ======================================== */
+.bar-gradient-orange {
+  background: linear-gradient(180deg, hsl(20 100% 52%) 0%, hsl(20 100% 45%) 100%);
+}
+
+.bar-gradient-green {
+  background: linear-gradient(180deg, hsl(171 40% 30%) 0%, hsl(171 40% 22%) 100%);
+}
+
+/* KPI stat card */
+.kpi-stat-card {
+  @apply bg-card rounded-xl border border-border/50;
+  box-shadow: 
+    0 1px 3px hsl(var(--card-shadow) / 0.04),
+    0 4px 12px hsl(var(--card-shadow) / 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 2px 6px hsl(var(--card-shadow) / 0.06),
+    0 8px 24px hsl(var(--card-shadow) / 0.05);
+}
+
+/* Glass effect for specific cases */
+@layer utilities {
+  .glass-subtle {
+    @apply bg-white/80 dark:bg-card/90 backdrop-blur-sm;
+  }
+}
+
+/* Chart bar with soft vertical gradient */
+.recharts-bar-rectangle rect {
+  rx: 4;
+  ry: 4;
+}
+
+/* ========================================
+   TABLET RESPONSIVENESS (768px - 1024px)
+   ======================================== */
+@layer utilities {
+  /* Tablet-specific layout utilities */
+  .tablet-safe-padding {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+  
+  .tablet-grid-cols {
+    @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .tablet-flex-wrap {
+    @apply flex flex-wrap gap-4;
+  }
+}
+
+/* Tablet breakpoint overrides */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Ensure main content doesn't overflow */
+  main {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Prevent layout collapse */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+  
+  /* Safe grid behavior on tablets */
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  /* Prevent fixed elements from blocking content */
+  .fixed {
+    contain: layout;
+  }
+  
+  /* Ensure cards don't collapse */
+  .scale-card,
+  .kpi-stat-card {
+    min-height: 100px;
+    min-width: 0;
+  }
+  
+  /* Chart containers should be flexible */
+  .chart-container {
+    min-height: 200px;
+    min-width: 0;
+    max-width: 100%;
+  }
+  
+  /* Responsive font scaling for tablets */
+  html {
+    font-size: 15px;
+  }
+  
+  /* Ensure tables scroll horizontally on tablets */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Safe padding for sidebar-adjacent content */
+  .sidebar-content-area {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* ========================================
+   SAFE RENDERING & LAYOUT PROTECTION
+   ======================================== */
+@layer utilities {
+  /* Prevent zero-dimension rendering issues */
+  .safe-min-dimensions {
+    min-width: 1px;
+    min-height: 1px;
+  }
+  
+  /* Safe container that prevents overflow breaking */
+  .safe-container {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Flex item safe sizing */
+  .flex-safe {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  
+  /* Grid item safe sizing */
+  .grid-safe {
+    min-width: 0;
+    overflow: hidden;
+  }
+}
+
+/* Prevent layout calculation errors */
+* {
+  box-sizing: border-box;
+}
+
+/* Safe rendering fallback for empty containers */
+.safe-render:empty::before {
+  content: '';
+  display: block;
+  min-height: 1px;
+}
+
+/* ========================================
+   SCROLL CONTAINER FIXES
+   ======================================== */
+@layer utilities {
+  /* Primary scroll container - prevents nested scroll issues */
+  .scroll-container-primary {
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent nested scroll containers from conflicting */
+  .scroll-container-primary .scroll-container-primary {
+    overflow: visible;
+  }
+  
+  /* Safe overflow for modals and dialogs */
+  .modal-scroll-safe {
+    max-height: calc(100vh - 4rem);
+    max-height: calc(100dvh - 4rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/* Ensure root scrolling works correctly */
+html, body {
+  min-height: 100dvh;
+  height: auto;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   PERFORMANCE & LOADING SAFETY
+   ======================================== */
+@layer utilities {
+  /* Lazy load visual indicator */
+  .lazy-load-placeholder {
+    @apply bg-muted animate-pulse;
+    min-height: 200px;
+  }
+  
+  /* Content visibility for off-screen elements */
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
+}
+
+/* Prevent layout shift during loading */
+.recharts-wrapper {
+  min-height: 200px;
+}
+
+/* ========================================
+   FONT STABILITY
+   ======================================== */
+html {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+/* Prevent zoom-based layout breaking */
+@media screen and (max-width: 1024px) {
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* ========================================
+   SIDEBAR TABLET OVERLAY MODE
+   ======================================== */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Sidebar should be overlay on tablet */
+  .sidebar-tablet-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 50;
+    width: 256px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar-tablet-overlay.open {
+    transform: translateX(0);
+  }
+  
+  /* RTL support */
+  [dir="rtl"] .sidebar-tablet-overlay {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+  }
+  
+  [dir="rtl"] .sidebar-tablet-overlay.open {
+    transform: translateX(0);
+  }
+  
+  /* Main content should have full width on tablet */
+  .main-content-tablet {
+    width: 100%;
+    padding-top: 4rem; /* Space for menu button */
+  }
+
+  /* Tablet stability: disable heavy backdrop filters that can break overlays */
+  .backdrop-blur-sm,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}

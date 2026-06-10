@@ -1,0 +1,1 @@
+UPDATE supplier_materials SET status = 'approved' WHERE status = 'rejected';

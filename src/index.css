@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scale Design System - Brand Colors in HSL */
+
+@layer base {
+  :root {
+    /* Neutral grey background */
+    --background: 220 14% 96%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    /* Scale Orange - Primary brand color */
+    --primary: 14 91% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Neutral grey - Secondary color */
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 15% 25%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 14 70% 95%;
+    --accent-foreground: 14 91% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 14 91% 48%;
+
+    --radius: 0.5rem;
+
+    /* Green sidebar */
+    --sidebar-background: 170 40% 17%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 14 91% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 170 35% 22%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 170 30% 25%;
+    --sidebar-ring: 14 91% 55%;
+
+    /* Chart colors */
+    --chart-1: 14 91% 48%;
+    --chart-2: 170 40% 35%;
+    --chart-3: 43 74% 66%;
+    --chart-4: 197 71% 52%;
+    --chart-5: 262 52% 47%;
+  }
+
+  .dark {
+    /* Dark grey background */
+    --background: 220 15% 10%;
+    --foreground: 0 0% 95%;
+
+    /* Cards blend with background, no harsh borders */
+    --card: 220 15% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 15% 14%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Scale Orange - Primary brand color */
+    --primary: 14 91% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Dark grey - Secondary color */
+    --secondary: 220 15% 16%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 14 50% 20%;
+    --accent-foreground: 14 91% 70%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Subtle borders that blend rather than stand out */
+    --border: 220 10% 16%;
+    --input: 220 10% 18%;
+    --ring: 14 91% 55%;
+
+    /* Green sidebar */
+    --sidebar-background: 170 45% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 14 91% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 170 35% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 170 30% 18%;
+    --sidebar-ring: 14 91% 55%;
+
+    /* Chart colors - dark mode */
+    --chart-1: 14 91% 55%;
+    --chart-2: 170 50% 45%;
+    --chart-3: 43 74% 66%;
+    --chart-4: 197 71% 52%;
+    --chart-5: 262 52% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+}
+
+/* Leaflet z-index containment – prevent map tiles from overlapping dialogs/sheets */
+.leaflet-container {
+  z-index: 0 !important;
+}
+.leaflet-pane {
+  z-index: 0 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1 !important;
+}

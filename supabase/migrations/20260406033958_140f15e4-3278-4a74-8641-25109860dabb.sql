@@ -1,0 +1,1 @@
+ALTER TABLE public.materials ADD COLUMN is_core boolean NOT NULL DEFAULT false;

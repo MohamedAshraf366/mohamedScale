@@ -1,0 +1,1 @@
+ALTER TABLE public.supplier_materials DROP COLUMN IF EXISTS manufacturer_price;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.39 163.05">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #f15625;
+      }
+
+      .cls-2 {
+        font-family: JosefinSansRoman-Light, 'Josefin Sans';
+        font-size: 55.69px;
+        font-variation-settings: 'wght' 300;
+        font-weight: 300;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <text class="cls-2" transform="translate(0 149.68)"><tspan x="0" y="0">scale</tspan></text>
+    <path class="cls-1" d="M13.24,69.59l5.82-6.52c.28-.31.06-.8-.36-.8h-2.41c-1.85,0-3.35-1.5-3.35-3.35v-24.17L42.89,1.12c.64-.71,1.55-1.12,2.5-1.12h41.68c1.85,0,3.35,1.5,3.35,3.35v22.79c0,.81-.3,1.6-.83,2.21l-5.3,6.04c-.27.31-.05.8.36.8h2.42c1.85,0,3.35,1.5,3.35,3.35v22.77c0,.82-.3,1.62-.85,2.23l-30.22,33.91H14.11c-.65,0-1.17-.52-1.17-1.17v-25.91c0-.29.11-.56.3-.78Z"/>
+  </g>
+</svg>

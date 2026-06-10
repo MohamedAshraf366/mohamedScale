@@ -1,0 +1,43 @@
+project_id = "bliiejmmpjpduxrewyev"
+
+[functions.exchange-token]
+verify_jwt = false
+
+[functions.send-whatsapp-message]
+verify_jwt = false
+
+[functions.manage-templates]
+verify_jwt = false
+
+[functions.upload-whatsapp-media]
+verify_jwt = false
+
+[functions.generate-quotation-pdf]
+verify_jwt = false
+
+[functions.migrate-followups]
+verify_jwt = false
+
+[functions.resolve-project-locations]
+verify_jwt = false
+
+[functions.agent-schema]
+verify_jwt = false
+
+[functions.agent-read]
+verify_jwt = false
+
+[functions.agent-write]
+verify_jwt = false
+
+[functions.global-activity]
+verify_jwt = false
+
+[functions.resolve-entity]
+verify_jwt = false
+
+[functions.geocode-zones]
+verify_jwt = false
+
+[functions.quote-extract]
+verify_jwt = false

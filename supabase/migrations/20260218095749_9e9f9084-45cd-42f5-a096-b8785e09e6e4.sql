@@ -1,0 +1,1 @@
+TRUNCATE TABLE public.delivery_rates;
