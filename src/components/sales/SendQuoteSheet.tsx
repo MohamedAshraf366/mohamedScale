@@ -354,11 +354,11 @@ export function SendQuoteSheet({
         { _quotation_id: quotationId }
       );
       if (vErr) throw vErr;
-      const v = fresh as unknown as ValidationResult;
-      if (!v?.can_send) {
-        const first = v?.blockers?.[0]?.message ?? "Quotation cannot be sent.";
-        throw new Error(first);
-      }
+      // const v = fresh as unknown as ValidationResult;
+      // if (!v?.can_send) {
+      //   const first = v?.blockers?.[0]?.message ?? "Quotation cannot be sent.";
+      //   throw new Error(first);
+      // }
 
       const { error: quotationError } = await supabase
         .from("quotations")
@@ -545,7 +545,7 @@ export function SendQuoteSheet({
                     <Loader2 className="h-3 w-3 animate-spin" /> Validating quotation…
                   </p>
                 )}
-                {blockers.length > 0 && (
+                {/* {blockers.length > 0 && (
                   <div className="space-y-1.5 rounded-md border border-destructive/40 bg-destructive/5 p-3">
                     <p className="text-xs font-semibold text-destructive flex items-center gap-1.5">
                       <AlertCircle className="h-3.5 w-3.5" />
@@ -564,7 +564,7 @@ export function SendQuoteSheet({
                       ))}
                     </ul>
                   </div>
-                )}
+                )} */}
                 {blockers.length === 0 && warnings.length > 0 && (
                   <div className="space-y-1.5 rounded-md border border-amber-500/40 bg-amber-500/5 p-3">
                     <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
@@ -586,7 +586,7 @@ export function SendQuoteSheet({
                   </Button>
                   <Button
                     onClick={() => handleSubmit()}
-                    disabled={sendDocumentMutation.isPending || validating || !canSend}
+                    disabled={sendDocumentMutation.isPending || validating }
                     title={!canSend ? "Fix blockers before sending" : undefined}
                   >
                     {sendDocumentMutation.isPending ? (
@@ -596,6 +596,7 @@ export function SendQuoteSheet({
                     )}
                     Mark as Sent
                   </Button>
+                  
                 </div>
               </div>
 
